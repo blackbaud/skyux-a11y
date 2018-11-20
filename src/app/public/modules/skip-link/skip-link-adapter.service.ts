@@ -4,8 +4,6 @@ import {
   Injectable
 } from '@angular/core';
 
-import * as zenscroll from 'zenscroll';
-
 import {
   SkyWindowRefService
 } from '@skyux/core';
@@ -39,12 +37,14 @@ export class SkySkipLinkAdapterService {
   public skipTo(link: SkySkipLink) {
     const el = link.elRef.nativeElement;
 
-    zenscroll.to(
-      el,
-      0,
-      () => {
-        el.focus();
-      }
-    );
+    const scrollTop = el.offsetTop -
+      // Account for body margin top.
+      parseInt(getComputedStyle(this.bodyEl).marginTop, 10) -
+      // Add 10 pixels padding by default.
+      10;
+
+    window.scroll(0, scrollTop);
+
+    el.focus();
   }
 }
