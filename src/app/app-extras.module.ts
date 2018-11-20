@@ -3,19 +3,13 @@ import {
 } from '@angular/core';
 
 import {
-  SkySampleModule
-} from './public';
-
-const temp = require('raw-loader!../assets/locales/resources_en_US.json');
+  SkySkipLinkModule
+} from './public/modules/skip-link/skip-link.module';
 
 @NgModule({
-  imports: [
-    SkySampleModule
-  ],
   exports: [
-    SkySampleModule
+    SkySkipLinkModule
   ],
-  providers: [],
   entryComponents: []
 })
 export class AppExtrasModule { }
