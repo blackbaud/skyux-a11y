@@ -7,66 +7,68 @@ import { ElementRef } from '@angular/core';
 
 describe('Skip link adapter service', () => {
 
+  const BODY_MARGIN_TOP = 56;
+  const TEST_EL_TOP = 83;
+  const ADAPTER_SVC_PADDING = 10;
+
+  let mockWindowSvc: any;
+  let scrollSpy: jasmine.Spy;
   let svc: SkySkipLinkAdapterService;
-  let styleEl: HTMLStyleElement;
-  let testEl1: HTMLDivElement;
+  let testEl: HTMLDivElement;
 
   beforeEach(() => {
+    scrollSpy = jasmine.createSpy('scroll');
+
+    mockWindowSvc = {
+      getWindow: () => ({
+        document: {
+          body: { }
+        },
+        getComputedStyle: () => ({
+          marginTop: BODY_MARGIN_TOP + 'px'
+        }),
+        scroll: scrollSpy
+      })
+    };
+
     TestBed.configureTestingModule({
       providers: [
-        SkyWindowRefService,
+        {
+          provide: SkyWindowRefService,
+          useValue: mockWindowSvc
+        },
         SkySkipLinkAdapterService
       ]
     });
 
-    document.body.classList.add('skip-link-margin-test');
-
     svc = TestBed.get(SkySkipLinkAdapterService);
 
-    testEl1 = document.createElement('div');
-    testEl1.style.height = (window.outerHeight + 1000) + 'px';
-    testEl1.style.position = 'absolute';
-    testEl1.style.top = '83px';
+    testEl = document.createElement('div');
+    testEl.style.height = (window.outerHeight + 1000) + 'px';
+    testEl.style.position = 'absolute';
+    testEl.style.top = TEST_EL_TOP + 'px';
 
-    testEl1.innerText = 'Testing';
+    testEl.innerText = 'Testing';
 
-    document.body.appendChild(testEl1);
+    document.body.appendChild(testEl);
   });
 
   afterEach(() => {
-    document.body.classList.remove('skip-link-margin-test');
+    document.body.removeChild(testEl);
 
-    if (styleEl) {
-      document.head.removeChild(styleEl);
-    }
-
-    document.body.removeChild(testEl1);
-
-    styleEl =
-      testEl1 =
-      undefined;
+    testEl = undefined;
   });
 
   it('should account for the browser\'s margin top property', () => {
-    styleEl = document.createElement('style');
-
-    styleEl.appendChild(
-      document.createTextNode(`
-        .skip-link-margin-test {
-          margin-top: 56px;
-        }
-      `
-      )
-    );
-
-    document.head.appendChild(styleEl);
-
     svc.skipTo({
       title: 'Test 1',
-      elRef: new ElementRef(testEl1)
+      elRef: new ElementRef(testEl)
     });
 
-    expect(window.scrollY).toBe(83 - 56 - 10);
+    expect(scrollSpy).toHaveBeenCalledWith(
+      0,
+      TEST_EL_TOP - BODY_MARGIN_TOP - ADAPTER_SVC_PADDING
+    );
   });
 
 });
