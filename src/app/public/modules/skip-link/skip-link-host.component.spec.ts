@@ -54,7 +54,7 @@ describe('Skip link host component', () => {
     skipLinkEl: DebugElement,
     elToFocus: HTMLElement
   ) {
-    expect(skipLinkEl.nativeElement).toHaveText('Skip to ' + link.title);
+    expect(skipLinkEl.nativeElement).toHaveText(`Skip to ${link.title}`);
 
     skipLinkEl.nativeElement.click();
 

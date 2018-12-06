@@ -2,14 +2,14 @@
 
 import {
   Component,
-  OnInit,
   ElementRef,
+  OnInit,
   ViewChild
 } from '@angular/core';
 
 import {
   SkySkipLinkService
-} from '../../public/modules/skip-link/skip-link.service';
+} from '../../public';
 
 //#endregion
 
@@ -23,10 +23,12 @@ export class SkipLinkDemoComponent implements OnInit {
   @ViewChild('link1')
   public link1: ElementRef;
 
-  constructor(private skipLinkSvc: SkySkipLinkService) { }
+  constructor(
+    private skipLinkService: SkySkipLinkService
+  ) { }
 
-  public ngOnInit() {
-    this.skipLinkSvc.setSkipLinks({
+  public ngOnInit(): void {
+    this.skipLinkService.setSkipLinks({
       links: [
         {
           title: 'area 1',

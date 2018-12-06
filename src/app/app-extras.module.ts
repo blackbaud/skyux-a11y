@@ -4,12 +4,11 @@ import {
 
 import {
   SkySkipLinkModule
-} from './public/modules/skip-link/skip-link.module';
+} from './public';
 
 @NgModule({
   exports: [
     SkySkipLinkModule
-  ],
-  entryComponents: []
+  ]
 })
 export class AppExtrasModule { }

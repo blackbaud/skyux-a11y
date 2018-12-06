@@ -11,7 +11,7 @@ describe('Skip link adapter service', () => {
   const TEST_EL_TOP = 83;
   const ADAPTER_SVC_PADDING = 10;
 
-  let mockWindowSvc: any;
+  let mockWindowService: any;
   let scrollSpy: jasmine.Spy;
   let svc: SkySkipLinkAdapterService;
   let testEl: HTMLDivElement;
@@ -19,7 +19,7 @@ describe('Skip link adapter service', () => {
   beforeEach(() => {
     scrollSpy = jasmine.createSpy('scroll');
 
-    mockWindowSvc = {
+    mockWindowService = {
       getWindow: () => ({
         document: {
           body: { }
@@ -35,7 +35,7 @@ describe('Skip link adapter service', () => {
       providers: [
         {
           provide: SkyWindowRefService,
-          useValue: mockWindowSvc
+          useValue: mockWindowService
         },
         SkySkipLinkAdapterService
       ]
