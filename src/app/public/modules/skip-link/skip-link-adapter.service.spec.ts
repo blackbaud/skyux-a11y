@@ -1,9 +1,22 @@
+// #region imports
+
+import {
+  ElementRef
+} from '@angular/core';
+
+import {
+  TestBed
+} from '@angular/core/testing';
+
+import {
+  SkyWindowRefService
+} from '@skyux/core';
+
 import {
   SkySkipLinkAdapterService
 } from './skip-link-adapter.service';
-import { TestBed } from '@angular/core/testing';
-import { SkyWindowRefService } from '@skyux/core';
-import { ElementRef } from '@angular/core';
+
+// #endregion
 
 describe('Skip link adapter service', () => {
 
@@ -62,7 +75,7 @@ describe('Skip link adapter service', () => {
   it('should account for the browser\'s margin top property', () => {
     svc.skipTo({
       title: 'Test 1',
-      elRef: new ElementRef(testEl)
+      elementRef: new ElementRef(testEl)
     });
 
     expect(scrollSpy).toHaveBeenCalledWith(

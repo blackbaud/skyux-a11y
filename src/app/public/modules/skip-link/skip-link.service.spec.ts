@@ -1,4 +1,4 @@
-//#region imports
+// #region imports
 
 import {
   ApplicationRef
@@ -30,24 +30,24 @@ import {
   SkySkipLinkArgs
 } from './skip-link-args';
 
-//#endregion
+// #endregion
 
 describe('Skip link service', () => {
 
-  let svc: SkySkipLinkService;
+  let service: SkySkipLinkService;
   let appRef: ApplicationRef;
 
   function setTestSkipLinks() {
     const args: SkySkipLinkArgs = {
       links: [
         {
-          elRef: undefined,
+          elementRef: undefined,
           title: 'Test 1'
         }
       ]
     };
 
-    svc.setSkipLinks(args);
+    service.setSkipLinks(args);
 
     tick();
     appRef.tick();
@@ -63,7 +63,7 @@ describe('Skip link service', () => {
       ]
     });
 
-    svc = TestBed.get(SkySkipLinkService);
+    service = TestBed.get(SkySkipLinkService);
     appRef = TestBed.get(ApplicationRef);
   });
 

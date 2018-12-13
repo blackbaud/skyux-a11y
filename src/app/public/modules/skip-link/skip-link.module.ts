@@ -1,4 +1,4 @@
-//#region imports
+// #region imports
 
 import {
   NgModule
@@ -7,6 +7,10 @@ import {
 import {
   CommonModule
 } from '@angular/common';
+
+import {
+  SkyDynamicComponentModule
+} from '@skyux/core';
 
 import {
   SkyI18nModule
@@ -28,7 +32,7 @@ import {
   SkySkipLinkAdapterService
 } from './skip-link-adapter.service';
 
-//#endregion
+// #endregion
 
 /**
  * The Angular module that enables "skip links" to be added to the page.
@@ -42,6 +46,7 @@ import {
   ],
   imports: [
     CommonModule,
+    SkyDynamicComponentModule,
     SkyI18nModule,
     SkyA11yResourcesModule
   ],

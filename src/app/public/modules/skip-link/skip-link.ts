@@ -1,10 +1,10 @@
-//#region imports
+// #region imports
 
 import {
   ElementRef
 } from '@angular/core';
 
-//#endregion
+// #endregion
 
 /**
  * A "skip link" that allows a user to skip parts of the page and go directly to the main content.
@@ -21,6 +21,6 @@ export interface SkySkipLink {
    * allow focus, either by spcecifying an HTML element that allows focus by default (such
    * as a `button` or `a` element) or by setting `tabindex="-1" on the specified element.
    */
-  elRef: ElementRef;
+  elementRef: ElementRef;
 
 }

@@ -1,4 +1,4 @@
-//#region imports
+// #region imports
 
 import {
   ChangeDetectorRef,
@@ -14,7 +14,7 @@ import {
   SkySkipLinkAdapterService
 } from './skip-link-adapter.service';
 
-//#endregion
+// #endregion
 
 @Component({
   selector: 'sky-skip-link-host',
@@ -40,7 +40,7 @@ export class SkySkipLinkHostComponent {
     private adapter: SkySkipLinkAdapterService
   ) { }
 
-  public skipTo(link: SkySkipLink) {
+  public skipTo(link: SkySkipLink): void {
     this.adapter.skipTo(link);
   }
 

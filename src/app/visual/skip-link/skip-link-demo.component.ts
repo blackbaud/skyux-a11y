@@ -3,8 +3,8 @@
 import {
   Component,
   ElementRef,
-  OnInit,
-  ViewChild
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
 
 import {
@@ -18,36 +18,30 @@ import {
   templateUrl: './skip-link-demo.component.html',
   styleUrls: ['./skip-link-demo.component.scss']
 })
-export class SkipLinkDemoComponent implements OnInit {
+export class SkipLinkDemoComponent implements AfterViewInit {
 
-  @ViewChild('link1')
-  public link1: ElementRef;
+  @ViewChild('skipLink1', { read: ElementRef })
+  private skipLink1: ElementRef;
+
+  @ViewChild('skipLink2', { read: ElementRef })
+  private skipLink2: ElementRef;
 
   constructor(
     private skipLinkService: SkySkipLinkService
   ) { }
 
-  public ngOnInit(): void {
+  public ngAfterViewInit(): void {
     this.skipLinkService.setSkipLinks({
       links: [
         {
-          title: 'area 1',
-          elRef: this.link1
+          title: 'Area 1',
+          elementRef: this.skipLink1
         },
         {
-          title: 'area 2',
-          elRef: this.link1
-        },
-        {
-          title: 'area 3',
-          elRef: this.link1
-        },
-        {
-          title: 'area 4',
-          elRef: this.link1
+          title: 'Area 2',
+          elementRef: this.skipLink2
         }
       ]
     });
   }
-
 }

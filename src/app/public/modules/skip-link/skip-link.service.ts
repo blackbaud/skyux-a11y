@@ -1,11 +1,13 @@
-//#region imports
+// #region imports
 
 import {
-  ApplicationRef,
-  ComponentFactoryResolver,
   ComponentRef,
   Injectable
 } from '@angular/core';
+
+import {
+  SkyDynamicComponentService, SkyDynamicComponentLocation
+} from '@skyux/core';
 
 import {
   SkySkipLinkArgs
@@ -15,11 +17,7 @@ import {
   SkySkipLinkHostComponent
 } from './skip-link-host.component';
 
-import {
-  SkySkipLinkAdapterService
-} from './skip-link-adapter.service';
-
-//#endregion
+// #endregion
 
 /**
  * An Angular service that "skip links" to be added to the page.  Skip links will only be displayed
@@ -30,33 +28,27 @@ import {
  */
 @Injectable()
 export class SkySkipLinkService {
-
   private static host: ComponentRef<SkySkipLinkHostComponent>;
 
   constructor(
-    private resolver: ComponentFactoryResolver,
-    private appRef: ApplicationRef,
-    private adapter: SkySkipLinkAdapterService
+    private dynamicComponentService: SkyDynamicComponentService
   ) { }
 
   public setSkipLinks(args: SkySkipLinkArgs) {
-    // Wait for the next change detection cycle.
-    setTimeout(() => {
-      const host = this.createHostComponent();
-
-      host.instance.links = args.links;
-    });
+    const host = this.createHostComponent();
+    host.instance.links = args.links;
   }
 
   private createHostComponent(): ComponentRef<SkySkipLinkHostComponent> {
     if (!SkySkipLinkService.host) {
-      const factory = this.resolver.resolveComponentFactory(SkySkipLinkHostComponent);
+      const componentRef = this.dynamicComponentService.createComponent(
+        SkySkipLinkHostComponent,
+        {
+          location: SkyDynamicComponentLocation.BodyTop
+        }
+      );
 
-      this.adapter.addHostEl();
-
-      const cmpRef = this.appRef.bootstrap(factory);
-
-      SkySkipLinkService.host = cmpRef;
+      SkySkipLinkService.host = componentRef;
     }
 
     return SkySkipLinkService.host;

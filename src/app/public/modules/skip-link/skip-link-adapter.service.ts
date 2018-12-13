@@ -1,4 +1,4 @@
-//#region imports
+// #region imports
 
 import {
   Injectable
@@ -12,40 +12,25 @@ import {
   SkySkipLink
 } from './skip-link';
 
-//#endregion
+// #endregion
 
 @Injectable()
 export class SkySkipLinkAdapterService {
-
-  private docRef: Document;
-
-  private bodyEl: HTMLElement;
-
   constructor(
     private windowRef: SkyWindowRefService
-  ) {
-    this.docRef = this.windowRef.getWindow().document;
-    this.bodyEl = this.docRef.body;
-  }
+  ) { }
 
-  public addHostEl() {
-    const el = this.docRef.createElement('sky-skip-link-host');
-
-    this.bodyEl.insertBefore(el, this.bodyEl.firstChild);
-  }
-
-  public skipTo(link: SkySkipLink) {
-    const el = link.elRef.nativeElement;
+  public skipTo(link: SkySkipLink): void {
+    const targetElement = link.elementRef.nativeElement;
     const win = this.windowRef.getWindow();
+    const bodyElement = win.document.body;
 
-    const scrollTop = el.offsetTop -
-      // Account for body margin top.
-      parseInt(win.getComputedStyle(this.bodyEl).marginTop, 10) -
-      // Add 10 pixels padding by default.
-      10;
+    const bodyMarginTop = parseInt(win.getComputedStyle(bodyElement).marginTop, 10);
+    const bodyDefaultPadding = 10;
+    const scrollTop = targetElement.offsetTop - bodyMarginTop - bodyDefaultPadding;
 
     win.scroll(0, scrollTop);
 
-    el.focus();
+    targetElement.focus();
   }
 }

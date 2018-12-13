@@ -1,4 +1,4 @@
-//#region imports
+// #region imports
 
 import {
   DebugElement,
@@ -10,6 +10,7 @@ import {
 } from '@angular/platform-browser';
 
 import {
+  async,
   TestBed
 } from '@angular/core/testing';
 
@@ -33,7 +34,7 @@ import {
   SkySkipLinkModule
 } from './skip-link.module';
 
-//#endregion
+// #endregion
 
 describe('Skip link host component', () => {
 
@@ -80,16 +81,16 @@ describe('Skip link host component', () => {
     document.body.removeChild(testEl2);
   });
 
-  it('should render a list of skip links', () => {
+  it('should render a list of skip links', async(() => {
     const fixture = TestBed.createComponent(SkySkipLinkHostComponent);
 
     const links = [
       {
-        elRef: new ElementRef(testEl1),
+        elementRef: new ElementRef(testEl1),
         title: 'Link 1'
       },
       {
-        elRef: new ElementRef(testEl2),
+        elementRef: new ElementRef(testEl2),
         title: 'Link 2'
       }
     ];
@@ -102,6 +103,10 @@ describe('Skip link host component', () => {
 
     validateSkipLink(links[0], skipLinkEls[0], testEl1);
     validateSkipLink(links[1], skipLinkEls[1], testEl2);
-  });
+
+    fixture.whenStable().then(() => {
+      expect(document.body).toBeAccessible();
+    });
+  }));
 
 });
