@@ -26,7 +26,7 @@ describe('Skip link adapter service', () => {
 
   let mockWindowService: any;
   let scrollSpy: jasmine.Spy;
-  let svc: SkySkipLinkAdapterService;
+  let service: SkySkipLinkAdapterService;
   let testEl: HTMLDivElement;
 
   beforeEach(() => {
@@ -54,7 +54,7 @@ describe('Skip link adapter service', () => {
       ]
     });
 
-    svc = TestBed.get(SkySkipLinkAdapterService);
+    service = TestBed.get(SkySkipLinkAdapterService);
 
     testEl = document.createElement('div');
     testEl.style.height = (window.outerHeight + 1000) + 'px';
@@ -73,7 +73,7 @@ describe('Skip link adapter service', () => {
   });
 
   it('should account for the browser\'s margin top property', () => {
-    svc.skipTo({
+    service.skipTo({
       title: 'Test 1',
       elementRef: new ElementRef(testEl)
     });
