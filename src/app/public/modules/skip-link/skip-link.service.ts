@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 import {
-  SkyDynamicComponentService, SkyDynamicComponentLocation
+  SkyDynamicComponentService, SkyDynamicComponentLocation, SkyWindowRefService
 } from '@skyux/core';
 
 import {
@@ -31,12 +31,16 @@ export class SkySkipLinkService {
   private static host: ComponentRef<SkySkipLinkHostComponent>;
 
   constructor(
-    private dynamicComponentService: SkyDynamicComponentService
+    private dynamicComponentService: SkyDynamicComponentService,
+    private windowRef: SkyWindowRefService
   ) { }
 
   public setSkipLinks(args: SkySkipLinkArgs) {
-    const host = this.createHostComponent();
-    host.instance.links = args.links;
+    // Timeout needed in case the consumer sets the skip links within an Angular lifecycle hook.
+    this.windowRef.getWindow().setTimeout(() => {
+      const host = this.createHostComponent();
+      host.instance.links = args.links;
+    });
   }
 
   private createHostComponent(): ComponentRef<SkySkipLinkHostComponent> {
