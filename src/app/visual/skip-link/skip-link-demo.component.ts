@@ -40,6 +40,10 @@ export class SkipLinkDemoComponent implements AfterViewInit {
         {
           title: 'Area 2',
           elementRef: this.skipLink2
+        },
+        {
+          title: 'Invalid area',
+          elementRef: undefined
         }
       ]
     });

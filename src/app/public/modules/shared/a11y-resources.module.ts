@@ -1,5 +1,3 @@
-// #region imports
-
 import {
   NgModule
 } from '@angular/core';
@@ -11,8 +9,6 @@ import {
 import {
   SkyA11yResourcesProvider
 } from '../../plugin-resources/a11y-resources-provider';
-
-// #endregion
 
 @NgModule({
   providers: [{

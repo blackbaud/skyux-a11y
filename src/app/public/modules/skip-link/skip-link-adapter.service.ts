@@ -1,5 +1,3 @@
-// #region imports
-
 import {
   Injectable
 } from '@angular/core';
@@ -11,8 +9,6 @@ import {
 import {
   SkySkipLink
 } from './skip-link';
-
-// #endregion
 
 @Injectable()
 export class SkySkipLinkAdapterService {

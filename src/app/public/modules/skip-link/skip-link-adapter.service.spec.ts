@@ -1,5 +1,3 @@
-// #region imports
-
 import {
   ElementRef
 } from '@angular/core';
@@ -15,8 +13,6 @@ import {
 import {
   SkySkipLinkAdapterService
 } from './skip-link-adapter.service';
-
-// #endregion
 
 describe('Skip link adapter service', () => {
 

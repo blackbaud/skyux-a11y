@@ -1,5 +1,3 @@
-// #region imports
-
 import {
   DebugElement,
   ElementRef
@@ -33,8 +31,6 @@ import {
 import {
   SkySkipLinkModule
 } from './skip-link.module';
-
-// #endregion
 
 describe('Skip link host component', () => {
 
@@ -96,7 +92,6 @@ describe('Skip link host component', () => {
     ];
 
     fixture.componentInstance.links = links;
-
     fixture.detectChanges();
 
     const skipLinkEls = fixture.debugElement.queryAll(By.css('.sky-skip-link'));
@@ -106,6 +101,10 @@ describe('Skip link host component', () => {
 
     fixture.whenStable().then(() => {
       expect(document.body).toBeAccessible();
+
+      // Remove links from the DOM.
+      fixture.componentInstance.links = [];
+      fixture.detectChanges();
     });
   }));
 

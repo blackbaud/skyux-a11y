@@ -1,13 +1,17 @@
-// #region imports
-
 import {
   ComponentRef,
   Injectable
 } from '@angular/core';
 
 import {
-  SkyDynamicComponentService, SkyDynamicComponentLocation, SkyWindowRefService
+  SkyDynamicComponentLocation,
+  SkyDynamicComponentService,
+  SkyWindowRefService
 } from '@skyux/core';
+
+import {
+  SkySkipLink
+} from './skip-link';
 
 import {
   SkySkipLinkArgs
@@ -17,10 +21,8 @@ import {
   SkySkipLinkHostComponent
 } from './skip-link-host.component';
 
-// #endregion
-
 /**
- * An Angular service that "skip links" to be added to the page.  Skip links will only be displayed
+ * An Angular service that adds "skip links" to the page.  Skip links will only be displayed
  * when the page initially loads and the user presses the Tab key, in which case the first link will
  * be displayed and focused.  Clicking the button will skip to the specified element.  Pressing
  * the Tab key again will move to the next skip link if more than one skip link is specified;
@@ -36,11 +38,20 @@ export class SkySkipLinkService {
   ) { }
 
   public setSkipLinks(args: SkySkipLinkArgs) {
+    args.links = args.links.filter((link: SkySkipLink) => {
+      const elementRefExists = (link.elementRef);
+      return (elementRefExists);
+    });
+
     // Timeout needed in case the consumer sets the skip links within an Angular lifecycle hook.
     this.windowRef.getWindow().setTimeout(() => {
       const host = this.createHostComponent();
       host.instance.links = args.links;
     });
+  }
+
+  public removeHostComponent(): void {
+    this.dynamicComponentService.removeComponent(SkySkipLinkService.host);
   }
 
   private createHostComponent(): ComponentRef<SkySkipLinkHostComponent> {

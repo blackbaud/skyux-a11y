@@ -1,10 +1,6 @@
-// #region imports
-
 import {
   ElementRef
 } from '@angular/core';
-
-// #endregion
 
 /**
  * A "skip link" that allows a user to skip parts of the page and go directly to the main content.

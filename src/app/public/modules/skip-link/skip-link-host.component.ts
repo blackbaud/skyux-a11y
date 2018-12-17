@@ -1,5 +1,3 @@
-// #region imports
-
 import {
   ChangeDetectorRef,
   ChangeDetectionStrategy,
@@ -13,8 +11,6 @@ import {
 import {
   SkySkipLinkAdapterService
 } from './skip-link-adapter.service';
-
-// #endregion
 
 @Component({
   selector: 'sky-skip-link-host',

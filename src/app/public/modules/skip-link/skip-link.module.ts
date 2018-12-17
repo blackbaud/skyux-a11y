@@ -1,5 +1,3 @@
-// #region imports
-
 import {
   NgModule
 } from '@angular/core';
@@ -31,8 +29,6 @@ import {
 import {
   SkySkipLinkAdapterService
 } from './skip-link-adapter.service';
-
-// #endregion
 
 /**
  * The Angular module that enables "skip links" to be added to the page.

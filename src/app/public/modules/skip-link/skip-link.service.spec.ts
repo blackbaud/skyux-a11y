@@ -1,7 +1,5 @@
-// #region imports
-
 import {
-  ApplicationRef
+  ApplicationRef, ElementRef
 } from '@angular/core';
 
 import {
@@ -19,6 +17,10 @@ import {
 } from '@skyux-sdk/testing';
 
 import {
+  SkySkipLink
+} from './skip-link';
+
+import {
   SkySkipLinkModule
 } from './skip-link.module';
 
@@ -30,18 +32,15 @@ import {
   SkySkipLinkArgs
 } from './skip-link-args';
 
-// #endregion
-
 describe('Skip link service', () => {
-
   let service: SkySkipLinkService;
   let appRef: ApplicationRef;
 
-  function setTestSkipLinks() {
+  function setTestSkipLinks(links?: SkySkipLink[]) {
     const args: SkySkipLinkArgs = {
-      links: [
+      links: links || [
         {
-          elementRef: undefined,
+          elementRef: new ElementRef({}),
           title: 'Test 1'
         }
       ]
@@ -83,6 +82,23 @@ describe('Skip link service', () => {
     const linkEl = document.querySelector('.sky-skip-link');
 
     expect(linkEl).toHaveText('Skip to Test 1');
+  }));
+
+  it('should ignore links that reference invalid elementRefs', fakeAsync(() => {
+    service.removeHostComponent();
+    tick();
+    appRef.tick();
+
+    setTestSkipLinks([
+      {
+        elementRef: undefined,
+        title: 'Test 1'
+      }
+    ]);
+
+    const linkEl = document.querySelectorAll('.sky-skip-link');
+
+    expect(linkEl.length).toEqual(0);
   }));
 
 });
