@@ -1,7 +1,7 @@
 {
-  "name": "@skyux/sample",
-  "version": "3.0.0-alpha.x",
-  "description": "SKY UX Sample",
+  "name": "@skyux/a11y",
+  "version": "3.0.0-alpha.0",
+  "description": "SKY UX Accessibility",
   "main": "bundles/bundle.umd.js",
   "module": "index.ts",
   "scripts": {
@@ -16,20 +16,22 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blackbaud/skyux-sample.git"
+    "url": "git+https://github.com/blackbaud/skyux-a11y.git"
   },
   "bugs": {
-    "url": "https://github.com/blackbaud/skyux-sample/issues"
+    "url": "https://github.com/blackbaud/skyux-a11y/issues"
   },
-  "homepage": "https://github.com/blackbaud/skyux-sample#readme",
+  "homepage": "https://github.com/blackbaud/skyux-a11y#readme",
   "peerDependencies": {
     "@angular/common": ">=4.3.6",
-    "@angular/core": ">=4.3.6"
+    "@angular/core": ">=4.3.6",
+    "@skyux/core": "^3.5.0",
+    "@skyux/i18n": "^3.5.0"
   },
   "dependencies": {},
   "devDependencies": {
-    "@blackbaud/skyux": "2.30.0",
-    "@blackbaud/skyux-builder": "1.29.0",
+    "@blackbaud/skyux": "2.34.0",
+    "@blackbaud/skyux-builder": "1.30.0",
     "@skyux-sdk/builder-plugin-skyux": "1.0.0-rc.5"
   }
 }

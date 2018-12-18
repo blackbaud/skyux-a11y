@@ -1,7 +1,13 @@
 {
-  "name": "skyux-sample",
+  "$schema": "./node_modules/@skyux/config/skyuxconfig-schema.json",
+  "name": "skyux-a11y",
   "mode": "easy",
   "compileMode": "aot",
+  "app": {
+    "styles": [
+      "src/app/visual-styles.scss"
+    ]
+  },
   "skyuxModules": [
     "SkyErrorModule"
   ],
