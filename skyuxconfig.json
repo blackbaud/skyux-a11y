@@ -8,9 +8,6 @@
       "src/app/visual-styles.scss"
     ]
   },
-  "skyuxModules": [
-    "SkyErrorModule"
-  ],
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
   ],
