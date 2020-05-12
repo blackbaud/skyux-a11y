@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/blackbaud/skyux-a11y#readme",
   "peerDependencies": {
-    "@angular/common": "^9.1.1",
-    "@angular/core": "^9.1.1",
-    "@skyux/core": "^4.0.0-rc.4",
-    "@skyux/i18n": "^4.0.0-rc.3"
+    "@angular/common": "^9.1.6",
+    "@angular/core": "^9.1.6",
+    "@skyux/core": "^4.0.0",
+    "@skyux/i18n": "^4.0.0"
   },
   "dependencies": {},
   "devDependencies": {
