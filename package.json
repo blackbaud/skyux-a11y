@@ -1,6 +1,6 @@
 {
   "name": "@skyux/a11y",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "SKY UX Accessibility",
   "scripts": {
     "build": "skyux build-public-library",
