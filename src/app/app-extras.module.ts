@@ -1,19 +1,9 @@
-import {
-  NgModule
-} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { SkyAppLinkModule } from '@skyux/router';
 
-import {
-  SkyAppLinkModule
-} from '@skyux/router';
-
-import {
-  SkySkipLinkModule
-} from './public/public_api';
+import { SkySkipLinkModule } from './public/public_api';
 
 @NgModule({
-  exports: [
-    SkyAppLinkModule,
-    SkySkipLinkModule
-  ]
+  exports: [SkyAppLinkModule, SkySkipLinkModule]
 })
-export class AppExtrasModule { }
+export class AppExtrasModule {}

@@ -1,15 +1,7 @@
 //#region imports
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  AfterViewInit
-} from '@angular/core';
-
-import {
-  SkySkipLinkService
-} from '../../public/public_api';
+import { SkySkipLinkService } from '../../public/public_api';
 
 //#endregion
 
@@ -19,16 +11,13 @@ import {
   styleUrls: ['./skip-link-demo.component.scss']
 })
 export class SkipLinkDemoComponent implements AfterViewInit {
-
   @ViewChild('skipLink1', { read: ElementRef })
   private skipLink1: ElementRef;
 
   @ViewChild('skipLink2', { read: ElementRef })
   private skipLink2: ElementRef;
 
-  constructor(
-    private skipLinkService: SkySkipLinkService
-  ) { }
+  constructor(private skipLinkService: SkySkipLinkService) {}
 
   public ngAfterViewInit(): void {
     this.skipLinkService.setSkipLinks({

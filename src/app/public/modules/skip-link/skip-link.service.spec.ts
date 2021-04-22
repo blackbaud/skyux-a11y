@@ -1,34 +1,11 @@
-import {
-  ApplicationRef,
-  ElementRef
-} from '@angular/core';
+import { ApplicationRef, ElementRef } from '@angular/core';
+import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
+import { expect } from '@skyux-sdk/testing';
 
-import {
-  fakeAsync,
-  inject,
-  TestBed,
-  tick
-} from '@angular/core/testing';
-
-import {
-  expect
-} from '@skyux-sdk/testing';
-
-import {
-  SkySkipLink
-} from './skip-link';
-
-import {
-  SkySkipLinkModule
-} from './skip-link.module';
-
-import {
-  SkySkipLinkService
-} from './skip-link.service';
-
-import {
-  SkySkipLinkArgs
-} from './skip-link-args';
+import { SkySkipLink } from './skip-link';
+import { SkySkipLinkArgs } from './skip-link-args';
+import { SkySkipLinkModule } from './skip-link.module';
+import { SkySkipLinkService } from './skip-link.service';
 
 describe('Skip link service', () => {
   let service: SkySkipLinkService;
@@ -52,9 +29,7 @@ describe('Skip link service', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        SkySkipLinkModule
-      ]
+      imports: [SkySkipLinkModule]
     });
   });
 
@@ -104,5 +79,4 @@ describe('Skip link service', () => {
 
     expect(linkEl.length).toEqual(0);
   }));
-
 });

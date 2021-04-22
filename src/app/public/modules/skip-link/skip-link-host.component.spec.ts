@@ -1,35 +1,13 @@
-import {
-  DebugElement,
-  ElementRef
-} from '@angular/core';
+import { DebugElement, ElementRef } from '@angular/core';
+import { async, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { expect } from '@skyux-sdk/testing';
 
-import {
-  By
-} from '@angular/platform-browser';
-
-import {
-  async,
-  TestBed
-} from '@angular/core/testing';
-
-import {
-  expect
-} from '@skyux-sdk/testing';
-
-import {
-  SkySkipLinkHostComponent
-} from './skip-link-host.component';
-
-import {
-  SkySkipLink
-} from './skip-link';
-
-import {
-  SkySkipLinkModule
-} from './skip-link.module';
+import { SkySkipLink } from './skip-link';
+import { SkySkipLinkHostComponent } from './skip-link-host.component';
+import { SkySkipLinkModule } from './skip-link.module';
 
 describe('Skip link host component', () => {
-
   let testEl1: HTMLDivElement;
   let testEl2: HTMLDivElement;
 
@@ -56,9 +34,7 @@ describe('Skip link host component', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        SkySkipLinkModule
-      ]
+      imports: [SkySkipLinkModule]
     });
 
     testEl1 = createTestDiv();
@@ -93,16 +69,18 @@ describe('Skip link host component', () => {
     validateSkipLink(links[1], skipLinkEls[1], testEl2);
 
     fixture.whenStable().then(() => {
-      expect(document.body).toBeAccessible(() => {
-        // Remove links from the DOM.
-        fixture.componentInstance.links = [];
-        fixture.detectChanges();
-      }, {
-        rules: {
-          'region': { enabled: false }
+      expect(document.body).toBeAccessible(
+        () => {
+          // Remove links from the DOM.
+          fixture.componentInstance.links = [];
+          fixture.detectChanges();
+        },
+        {
+          rules: {
+            region: { enabled: false }
+          }
         }
-      });
+      );
     });
   }));
-
 });
