@@ -1,24 +1,12 @@
-import {
-  ComponentRef,
-  Injectable
-} from '@angular/core';
-
+import { ComponentRef, Injectable } from '@angular/core';
 import {
   SkyDynamicComponentLocation,
   SkyDynamicComponentService
 } from '@skyux/core';
 
-import {
-  SkySkipLink
-} from './skip-link';
-
-import {
-  SkySkipLinkArgs
-} from './skip-link-args';
-
-import {
-  SkySkipLinkHostComponent
-} from './skip-link-host.component';
+import { SkySkipLink } from './skip-link';
+import { SkySkipLinkArgs } from './skip-link-args';
+import { SkySkipLinkHostComponent } from './skip-link-host.component';
 
 /**
  * An Angular service that adds "skip links" to the page.  Skip links will only be displayed
@@ -32,14 +20,12 @@ import {
 export class SkySkipLinkService {
   private static host: ComponentRef<SkySkipLinkHostComponent>;
 
-  constructor(
-    private dynamicComponentService: SkyDynamicComponentService
-  ) { }
+  constructor(private dynamicComponentService: SkyDynamicComponentService) {}
 
   public setSkipLinks(args: SkySkipLinkArgs) {
     args.links = args.links.filter((link: SkySkipLink) => {
-      const elementRefExists = (link.elementRef);
-      return (elementRefExists);
+      const elementRefExists = link.elementRef;
+      return elementRefExists;
     });
 
     // Timeout needed in case the consumer sets the skip links within an Angular lifecycle hook.
@@ -68,5 +54,4 @@ export class SkySkipLinkService {
 
     return SkySkipLinkService.host;
   }
-
 }

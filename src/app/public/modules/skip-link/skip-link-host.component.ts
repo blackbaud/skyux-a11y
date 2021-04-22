@@ -4,13 +4,8 @@ import {
   Component
 } from '@angular/core';
 
-import {
-  SkySkipLink
-} from './skip-link';
-
-import {
-  SkySkipLinkAdapterService
-} from './skip-link-adapter.service';
+import { SkySkipLink } from './skip-link';
+import { SkySkipLinkAdapterService } from './skip-link-adapter.service';
 
 @Component({
   selector: 'sky-skip-link-host',
@@ -19,7 +14,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkySkipLinkHostComponent {
-
   public get links(): SkySkipLink[] {
     return this._links;
   }
@@ -34,10 +28,9 @@ export class SkySkipLinkHostComponent {
   constructor(
     private changeDetector: ChangeDetectorRef,
     private adapter: SkySkipLinkAdapterService
-  ) { }
+  ) {}
 
   public skipTo(link: SkySkipLink): void {
     this.adapter.skipTo(link);
   }
-
 }

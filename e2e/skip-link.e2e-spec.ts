@@ -1,11 +1,6 @@
-import {
-  expect,
-  SkyHostBrowser
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser } from '@skyux-sdk/e2e';
 
-import {
-  browser
-} from 'protractor';
+import { browser } from 'protractor';
 
 describe('Skip link', () => {
   function focusSkipLink() {
@@ -15,12 +10,9 @@ describe('Skip link', () => {
   }
 
   function validateScreenshot(name: string, done: DoneFn) {
-    expect('#skip-link-screenshot').toMatchBaselineScreenshot(
-      done,
-      {
-        screenshotName: name
-      }
-    );
+    expect('#skip-link-screenshot').toMatchBaselineScreenshot(done, {
+      screenshotName: name
+    });
   }
 
   beforeEach(() => {
@@ -33,9 +25,8 @@ describe('Skip link', () => {
   });
 
   it('should match previous screenshot when a skip link is focused', (done) => {
-    focusSkipLink()
-      .then(() => {
-        validateScreenshot('sky-skip-link-focused', done);
-      });
+    focusSkipLink().then(() => {
+      validateScreenshot('sky-skip-link-focused', done);
+    });
   });
 });

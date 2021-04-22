@@ -4,13 +4,9 @@
   "mode": "easy",
   "compileMode": "aot",
   "app": {
-    "styles": [
-      "src/app/visual-styles.scss"
-    ]
+    "styles": ["src/app/visual-styles.scss"]
   },
-  "plugins": [
-    "@skyux-sdk/builder-plugin-skyux"
-  ],
+  "plugins": ["@skyux-sdk/builder-plugin-skyux"],
   "testSettings": {
     "e2e": {
       "browserSet": "speedy"
