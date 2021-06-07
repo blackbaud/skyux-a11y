@@ -20,10 +20,6 @@ import {
 } from '../shared/a11y-resources.module';
 
 import {
-  SkySkipLinkService
-} from './skip-link.service';
-
-import {
   SkySkipLinkHostComponent
 } from './skip-link-host.component';
 
@@ -44,8 +40,7 @@ import {
     SkyA11yResourcesModule
   ],
   providers: [
-    SkyAppWindowRef,
-    SkySkipLinkService
+    SkyAppWindowRef
   ]
 })
 export class SkySkipLinkModule { }
