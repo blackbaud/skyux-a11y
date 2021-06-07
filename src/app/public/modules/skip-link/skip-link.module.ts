@@ -27,10 +27,6 @@ import {
   SkySkipLinkHostComponent
 } from './skip-link-host.component';
 
-import {
-  SkySkipLinkAdapterService
-} from './skip-link-adapter.service';
-
 /**
  * The Angular module that enables "skip links" to be added to the page.
  */
@@ -49,7 +45,6 @@ import {
   ],
   providers: [
     SkyAppWindowRef,
-    SkySkipLinkAdapterService,
     SkySkipLinkService
   ]
 })
