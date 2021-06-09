@@ -20,16 +20,8 @@ import {
 } from '../shared/a11y-resources.module';
 
 import {
-  SkySkipLinkService
-} from './skip-link.service';
-
-import {
   SkySkipLinkHostComponent
 } from './skip-link-host.component';
-
-import {
-  SkySkipLinkAdapterService
-} from './skip-link-adapter.service';
 
 /**
  * The Angular module that enables "skip links" to be added to the page.
@@ -48,9 +40,7 @@ import {
     SkyA11yResourcesModule
   ],
   providers: [
-    SkyAppWindowRef,
-    SkySkipLinkAdapterService,
-    SkySkipLinkService
+    SkyAppWindowRef
   ]
 })
 export class SkySkipLinkModule { }
