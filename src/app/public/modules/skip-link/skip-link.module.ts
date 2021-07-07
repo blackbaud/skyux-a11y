@@ -11,10 +11,6 @@ import {
 } from '@skyux/i18n';
 
 import {
-  SkyA11yForRootCompatModule
-} from '../shared/a11y-for-root-compat.module';
-
-import {
   SkyA11yResourcesModule
 } from '../shared/a11y-resources.module';
 
@@ -35,7 +31,6 @@ import {
   imports: [
     CommonModule,
     SkyI18nModule,
-    SkyA11yForRootCompatModule,
     SkyA11yResourcesModule
   ]
 })
