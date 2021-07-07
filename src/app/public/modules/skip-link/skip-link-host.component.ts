@@ -16,6 +16,9 @@ import {
   selector: 'sky-skip-link-host',
   templateUrl: './skip-link-host.component.html',
   styleUrls: ['./skip-link-host.component.scss'],
+  providers: [
+    SkySkipLinkAdapterService
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkySkipLinkHostComponent {

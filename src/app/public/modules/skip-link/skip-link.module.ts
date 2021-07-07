@@ -7,29 +7,20 @@ import {
 } from '@angular/common';
 
 import {
-  SkyAppWindowRef,
-  SkyDynamicComponentModule
-} from '@skyux/core';
-
-import {
   SkyI18nModule
 } from '@skyux/i18n';
+
+import {
+  SkyA11yForRootCompatModule
+} from '../shared/a11y-for-root-compat.module';
 
 import {
   SkyA11yResourcesModule
 } from '../shared/a11y-resources.module';
 
 import {
-  SkySkipLinkService
-} from './skip-link.service';
-
-import {
   SkySkipLinkHostComponent
 } from './skip-link-host.component';
-
-import {
-  SkySkipLinkAdapterService
-} from './skip-link-adapter.service';
 
 /**
  * The Angular module that enables "skip links" to be added to the page.
@@ -43,14 +34,9 @@ import {
   ],
   imports: [
     CommonModule,
-    SkyDynamicComponentModule,
     SkyI18nModule,
+    SkyA11yForRootCompatModule,
     SkyA11yResourcesModule
-  ],
-  providers: [
-    SkyAppWindowRef,
-    SkySkipLinkAdapterService,
-    SkySkipLinkService
   ]
 })
 export class SkySkipLinkModule { }
