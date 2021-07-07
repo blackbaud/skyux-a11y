@@ -1,6 +1,6 @@
 {
   "name": "@skyux/a11y",
-  "version": "4.0.1",
+  "version": "5.0.0-beta.0",
   "description": "SKY UX Accessibility",
   "scripts": {
     "build": "skyux build-public-library",
@@ -23,8 +23,8 @@
   "peerDependencies": {
     "@angular/common": "^9.1.6 || ^12",
     "@angular/core": "^9.1.6 || ^12",
-    "@skyux/core": "^4.0.0",
-    "@skyux/i18n": "^4.0.0"
+    "@skyux/core": "^5.0.0-beta.0",
+    "@skyux/i18n": "^5.0.0-beta.0"
   },
   "dependencies": {},
   "devDependencies": {
@@ -37,19 +37,19 @@
     "@angular/platform-browser": "9.1.13",
     "@angular/platform-browser-dynamic": "9.1.13",
     "@angular/router": "9.1.13",
-    "@blackbaud/auth-client": "2.47.0",
+    "@blackbaud/auth-client": "2.48.0",
     "@skyux-sdk/builder": "4.9.0",
-    "@skyux-sdk/builder-plugin-skyux": "4.1.4",
+    "@skyux-sdk/builder-plugin-skyux": "4.2.0",
     "@skyux-sdk/e2e": "4.0.2",
-    "@skyux-sdk/testing": "4.2.3",
+    "@skyux-sdk/testing": "4.3.0",
     "@skyux/assets": "4.0.1",
     "@skyux/config": "4.4.0",
-    "@skyux/core": "4.5.1",
+    "@skyux/core": "4.6.0",
     "@skyux/http": "4.2.0",
     "@skyux/i18n": "4.2.1",
     "@skyux/omnibar-interop": "4.0.1",
-    "@skyux/router": "4.2.1",
-    "@skyux/theme": "4.16.3",
+    "@skyux/router": "4.2.2",
+    "@skyux/theme": "4.17.0",
     "codelyzer": "5.2.2",
     "rxjs": "6.6.7",
     "ts-node": "8.3.0",

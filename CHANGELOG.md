@@ -1,3 +1,8 @@
+# 5.0.0-beta.0 (2021-07-07)
+
+- Initial beta release.
+- Added support for `@angular/core@^12`. [#19](https://github.com/blackbaud/skyux-a11y/pull/19)
+
 # 4.0.1 (2020-08-05)
 
 - Added support for `@skyux/theme@4.8.0` and `@skyux-sdk/builder@4.3.0`. [#16](https://github.com/blackbaud/skyux-a11y/pull/16)
